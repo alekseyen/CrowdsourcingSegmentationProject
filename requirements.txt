@@ -1,0 +1,11 @@
+torch
+torchvision
+pytorch-lightning
+pandas
+numpy
+scikit-learn
+scikit-image
+pillow
+tqdm
+ipyplot
+timm
