@@ -11,8 +11,8 @@
 
 **Вводные**: 
 * Тренировочные данные: 200 размеченных изображений и 8500 неразмеченных.
-* [Ноутбук](https://github.com/btseytlin/shad_cv_project_21/blob/main/train_basic_classifier.ipynb) дообучает MobileNetV2 (2.3М параметров) на тысяче размеченных картинок.
-* [Ноутбук для сабмита](https://github.com/btseytlin/shad_cv_project_21/blob/main/submit.ipynb) запускает обученную модель и генерирует `submit.csv` нужного формата.
+* [Ноутбук](https://github.com/pilot7747/shad_cv_project_21/blob/main/train_basic_classifier.ipynb) дообучает MobileNetV2 (2.3М параметров) на тысяче размеченных картинок.
+* [Ноутбук для сабмита](https://github.com/pilot7747/shad_cv_project_21/blob/main/submit.ipynb) запускает обученную модель и генерирует `submit.csv` нужного формата.
 
 ## Условия
 * Минимальная цена за страницу заданий: $0.01
