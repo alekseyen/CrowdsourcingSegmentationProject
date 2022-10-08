@@ -35,11 +35,11 @@ class ImagesDataset(Dataset):
         else:
             label = -1 # Carefully handle that!
         img = io.imread(self.image_paths[idx])
-        img = img[...,:3] # Some images have 4 channels, fix that
+        img = img[...,:3]  # Some images have 4 channels, fix that
         if self.transform:
             img = self.transform(img)
 
-        return img, label
+        return img, label, idx
 
 def evaluate_model(model, dataset, batch_size=32, num_workers=4):
     model.eval()
@@ -49,11 +49,12 @@ def evaluate_model(model, dataset, batch_size=32, num_workers=4):
                                            shuffle=False)
     predictions = []
     labels = []
+    idxs = []
     with torch.no_grad():
-        for x, y in tqdm(loader):
+        for x, y, idx in tqdm(loader):
             prediction = model.predict(x).numpy()
             predictions += list(prediction)
             labels += list(y.numpy())
-            
-    return labels, predictions
+            idxs += idx
+    return labels, predictions, idxs
 

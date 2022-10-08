@@ -10,8 +10,8 @@ class ImageClassifier(pl.LightningModule):
     def __init__(self, trunk=None, class_weight=None, learning_rate=1e-3):
         super().__init__()
         self.class_weight = class_weight
-        self.trunk = trunk or timm.create_model('mobilenetv2_100', pretrained=True, num_classes=2)
-        self.learning_rate =  learning_rate
+        self.trunk = trunk or timm.create_model('mobilenetv2_100', pretrained=True, num_classes=3)
+        self.learning_rate = learning_rate
 
     def forward(self, x):
         return self.trunk(x)
@@ -29,9 +29,11 @@ class ImageClassifier(pl.LightningModule):
         return optimizer
 
     def training_step(self, batch, batch_idx):
-        x, y = batch
+        x, y, idx = batch
         y_hat = self(x)
         loss = nn.CrossEntropyLoss(weight=self.class_weight)(y_hat, y)
+
+        self.log("loss", loss)
         return loss
 
     def validation_step(self, batch, batch_idx):
