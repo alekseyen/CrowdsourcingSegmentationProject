@@ -22,7 +22,7 @@ class ImagesDataset(Dataset):
         self.labels = labels
         self.targets = self.labels
         self.transform = transform
-        
+
         if self.labels is not None:
             assert len(self.image_paths) == len(self.labels)
 
@@ -41,12 +41,13 @@ class ImagesDataset(Dataset):
 
         return img, label, idx
 
-def evaluate_model(model, dataset, batch_size=32, num_workers=4):
+def evaluate_model(model, dataset, batch_size=32, num_workers=4, **kwargs):
     model.eval()
-    loader = torch.utils.data.DataLoader(dataset, 
+    loader = torch.utils.data.DataLoader(dataset,
                                            batch_size=batch_size,
                                            num_workers=num_workers,
-                                           shuffle=False)
+                                           shuffle=False,
+                                           **kwargs)
     predictions = []
     labels = []
     # idxs = []
