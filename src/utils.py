@@ -49,12 +49,12 @@ def evaluate_model(model, dataset, batch_size=32, num_workers=4):
                                            shuffle=False)
     predictions = []
     labels = []
-    idxs = []
+    # idxs = []
     with torch.no_grad():
         for x, y, idx in tqdm(loader):
             prediction = model.predict(x).numpy()
             predictions += list(prediction)
             labels += list(y.numpy())
-            idxs += idx
-    return labels, predictions, idxs
+            # idxs += idx
+    return labels, predictions  #, idxs
 

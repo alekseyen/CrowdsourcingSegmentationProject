@@ -24,7 +24,7 @@ class ImageClassifier(pl.LightningModule):
         return torch.max(self.forward(x), 1)[1]
 
     def configure_optimizers(self):
-        optimizer = torch.optim.AdamW(self.parameters(),
+        optimizer = torch.optim.Adam(self.parameters(),
                                       lr=self.learning_rate)
         return optimizer
 
