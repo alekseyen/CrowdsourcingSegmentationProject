@@ -16,7 +16,7 @@ Project settings:
 |---|---|---|
 
 Pool settings:
- ![pool_settings](img/pool_settings.png)
+ ![pool_settings](img/pool_1.png)
 
 ## Model developing
 labeled dataset(after DawidSkene aggregation algorithm):
